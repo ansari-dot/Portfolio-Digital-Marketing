@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --marketing-primary: 250 69% 52%;
+    --marketing-secondary: 252 100% 69%;
+    --marketing-light: 260 30% 98%;
+    --marketing-dark: 260 50% 10%;
+    --marketing-accent: 340 100% 60%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 50% 10%;
+
+    --secondary: 252 100% 69%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 340 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --input: 260 30% 90%;
+    --ring: 250 69% 52%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-marketing-primary text-white rounded-full font-medium 
+           shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-marketing-secondary 
+           hover:translate-y-[-2px];
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-marketing-primary border border-marketing-primary 
+           rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300 
+           hover:bg-marketing-light hover:translate-y-[-2px];
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-marketing-dark;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-muted-foreground max-w-2xl mx-auto mb-12;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-marketing-light shadow-lg rounded-xl;
+  }
+
+  .parallax-bg {
+    @apply fixed inset-0 w-full h-full -z-10 pointer-events-none;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-marketing-primary to-marketing-accent text-transparent bg-clip-text;
+  }
+}
+
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+/* For the smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add a subtle blur effect when menu opens */
+.blur-bg {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
